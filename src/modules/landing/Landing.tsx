@@ -4,7 +4,6 @@ import {
   Briefcase,
   MessageCircle,
   Users,
-  Shield,
   ArrowRight,
   CheckCircle,
   Star,

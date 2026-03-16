@@ -7,7 +7,6 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Camera, Mail, Phone, MapPin, Save } from "lucide-react";
 
 import { usePerfil } from "../hooks/usePerfil";
-import { Spinner } from "@/components/ui/spinner";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Select,
@@ -288,7 +287,7 @@ export const ContratadorPerfil = () => {
 
                     {suggestions.length > 0 && (
                       <div className="border rounded-md mt-2 bg-white shadow-lg max-h-60 overflow-y-auto">
-                        {suggestions.map((suggest, index) => (
+                        {suggestions.map((suggest: any, index: number) => (
                           <div
                             className="text-sm hover:bg-gray-100 border-b last:border-0 p-3 cursor-pointer"
                             key={index}
@@ -359,7 +358,7 @@ export const ContratadorPerfil = () => {
                   <div className="space-y-2">
                     <Label htmlFor="state">State</Label>
                     <Select
-                      value={state || data?.data.profile?.state}
+                      value={(state || data?.data.profile?.state) ?? undefined}
                       onValueChange={(value) => {
                         setValue("state", value);
                       }}

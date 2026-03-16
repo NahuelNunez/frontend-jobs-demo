@@ -3,12 +3,11 @@ import { Link, useSearchParams } from "react-router-dom";
 import { authService } from "../services/auth.service";
 import { toast } from "sonner";
 import { Spinner } from "@/components/ui/spinner";
-import { Check, CheckCircle, PartyPopper } from "lucide-react";
+import { CheckCircle, PartyPopper } from "lucide-react";
 
 export const RegisterSuccessfulVerified = () => {
   const [searchParams] = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
-  const [message, setMessage] = useState([]);
   const token = searchParams.get("token");
 
   useEffect(() => {
@@ -19,10 +18,9 @@ export const RegisterSuccessfulVerified = () => {
     setIsLoading(true);
 
     try {
-      const response = await authService.verifyEmail(token);
+      const response = await authService.verifyEmail(token!);
       if (response.data) {
         toast.success("Your account has been verified.");
-        setMessage(response.data);
       }
     } catch (error: any) {
       const msgError =

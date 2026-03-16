@@ -23,7 +23,7 @@ export const ProveedorHome = () => {
   const [misPostulaciones, setMisPostulaciones] = useState<
     PostulacionesResponse[]
   >([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [, setIsLoading] = useState(false);
   const stats = [
     {
       label: "My Applications",
@@ -140,7 +140,7 @@ export const ProveedorHome = () => {
                     <div className="flex items-center gap-4 mt-1 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <Eye className="w-4 h-4" />
-                        {postulacion.views || 4} views
+                        {(postulacion as any).views || 4} views
                       </span>
                       <span className="flex items-center gap-1">
                         <MessageCircle className="w-4 h-4" />

@@ -70,7 +70,7 @@ export const RegisterVerifiyEmail = () => {
               Didn't receive the email?
             </span>
             <button
-              onClick={() => handleResendVerifyEmail(user?.email)}
+              onClick={() => handleResendVerifyEmail(user?.email ?? "")}
               className="text-blue-700 font-semibold cursor-pointer hover:text-blue-600 transition-all hover:underline"
             >
               Resend verification link
