@@ -144,7 +144,7 @@ export const ProveedorHome = () => {
                       </span>
                       <span className="flex items-center gap-1">
                         <MessageCircle className="w-4 h-4" />
-                        {postulacion.contacts || 2}
+                        {(postulacion as any).contacts || 2}
                       </span>
                     </div>
                   </div>

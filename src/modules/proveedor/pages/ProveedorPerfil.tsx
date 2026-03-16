@@ -413,7 +413,9 @@ export const ProveedorPerfil = () => {
                         State
                       </Label>
                       <Select
-                        value={state || data?.data.profile?.state}
+                        value={
+                          (state || data?.data.profile?.state) ?? undefined
+                        }
                         onValueChange={(value) => {
                           setValue("state", value);
                         }}
@@ -486,7 +488,7 @@ export const ProveedorPerfil = () => {
             {/* Video Introduction Card */}
             <Card className="overflow-hidden bg-gray-900 border-0">
               <div className="relative aspect-video">
-                {data?.data.profile.videoUrl ? (
+                {data?.data.profile?.videoUrl ? (
                   <iframe
                     className="w-full h-full object-cover"
                     src={data.data.profile.videoUrl}

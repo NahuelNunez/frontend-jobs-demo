@@ -13,8 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { ArrowLeft, MapPin, MessageCircle, Save, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import { MapPin, MessageCircle, Save, Star } from "lucide-react";
 
 import { DashboardLayout } from "@/components/layout/DashboardLayout/DashboardLayout";
 import { useProveedorPost } from "../hooks/useProveedorPost";
@@ -23,7 +22,10 @@ import { StarRating } from "@/components/ui/star-rating";
 
 import { toast } from "sonner";
 
-import { PerfilProveedor, perfilService } from "../services/perfil.service";
+import {
+  type PerfilProveedor,
+  perfilService,
+} from "../services/perfil.service";
 
 export const ProveedorCreatePost = () => {
   const {

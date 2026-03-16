@@ -1,4 +1,3 @@
-import { Query } from "@tanstack/react-query";
 import axios from "axios";
 
 const base_URL = "https://api.geoapify.com/v1/geocode/autocomplete";

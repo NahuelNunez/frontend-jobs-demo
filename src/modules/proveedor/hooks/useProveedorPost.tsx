@@ -47,7 +47,7 @@ export const useProveedorPost = () => {
     },
   });
 
-  const { data, isLoading } = useQuery<ProfileResponse>({
+  const { data } = useQuery<ProfileResponse>({
     queryKey: perfilProveedorKeys.detail(),
     queryFn: perfilService.getPerfil,
     staleTime: 1000 * 60 * 5, // 5 minutos
@@ -56,7 +56,7 @@ export const useProveedorPost = () => {
   useEffect(() => {
     if (data?.success && data.data) {
       const { profile } = data.data;
-      setVideoPreview(profile?.videoUrl);
+      setVideoPreview(profile?.videoUrl ?? "");
       reset({
         title: profile?.title,
         category: profile?.category,
@@ -101,7 +101,13 @@ export const useProveedorPost = () => {
 
   // Mutation for creating post
   const createPostMutation = useMutation({
-    mutationFn: async ({ postData, videoUrl }) => {
+    mutationFn: async ({
+      postData,
+      videoUrl,
+    }: {
+      postData: ProviderUploadVideo;
+      videoUrl: FormData;
+    }) => {
       // uploadData es el FormData con el video
       // Step 1: Upload post information with video
       const postInformation = await perfilService.updateApliccation(postData);
